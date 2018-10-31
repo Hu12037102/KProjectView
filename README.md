@@ -115,18 +115,24 @@ dependencies {
            <attr name="sure_drawable_padding" format="dimension" />
 
            //点击事件回调
-            public interface OnTitleViewClickListener {
-                   void onBackClick(@NonNull View view);
 
-                   void onSureClick(@NonNull View view);
+           interface OnItemClickListener {
+                   fun onItemClick(view: View)
                }
 
-               public interface OnBackViewClickListener {
-                   void onBackClick(@NonNull View view);
-               }
 
-               public interface OnSureViewClickListener {
-                   void onSureClick(@NonNull View view);
-               }
+
+              interface OnTitleItemClickListener {
+                    fun onBackClick(v: View)
+                    fun onSureClick(v: View)
+                }
+
+                interface OnTitleBackClickListener {
+                    fun onBackClick(view: View)
+                }
+
+                interface OnTitleSureClickListener {
+                    fun onSureClick(view: View)
+                }
 
            ```
