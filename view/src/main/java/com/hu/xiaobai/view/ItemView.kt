@@ -20,7 +20,7 @@ open class ItemView : RelativeLayout {
     private lateinit var mRootView: View
     private var onItemClickListener: OnItemClickListener? = null
    fun setOnItemClickListener(onItemClickListener: OnItemClickListener){
-       this.onItemClickListener = onItemClickListener;
+       this.onItemClickListener = onItemClickListener
    }
 
     constructor(context: Context) : super(context) {
