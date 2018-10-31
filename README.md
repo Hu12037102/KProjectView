@@ -14,7 +14,7 @@ allprojects {
 	}
 
 dependencies {
-	        implementation 'com.github.Hu12037102:ProjectView:1.0.0'
+	        implementation 'com.github.Hu12037102:KProjectView:1.0.0'
 	}
 
 <declare-styleable name="ItemView">
