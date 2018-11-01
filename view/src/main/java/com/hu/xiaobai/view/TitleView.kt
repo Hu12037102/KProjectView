@@ -3,6 +3,7 @@ package com.hu.xiaobai.view
 import android.content.Context
 import android.support.v4.content.ContextCompat
 import android.util.AttributeSet
+import android.util.TypedValue
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
@@ -65,17 +66,17 @@ class TitleView : RelativeLayout {
                     typeArray.getDrawable(R.styleable.TitleView_back_top_drawable), typeArray.getDrawable(R.styleable.TitleView_back_right_drawable),
                     typeArray.getDrawable(R.styleable.TitleView_back_bottom_drawable))
             mTvBack.text = typeArray.getString(R.styleable.TitleView_back_data)
-            mTvBack.textSize = typeArray.getDimension(R.styleable.TitleView_back_text_size, mTvBack.textSize)
+            mTvBack.setTextSize(TypedValue.COMPLEX_UNIT_PX,typeArray.getDimension(R.styleable.TitleView_back_text_size,  mTvBack.textSize))
             mTvBack.setTextColor(typeArray.getColor(R.styleable.TitleView_back_text_color, ContextCompat.getColor(context, R.color.colorFF333333)))
             mTvBack.compoundDrawablePadding = typeArray.getDimensionPixelSize(R.styleable.TitleView_back_drawable_padding, 0)
             mTvCenter.text = typeArray.getString(R.styleable.TitleView_center_data)
-            mTvCenter.textSize = typeArray.getDimension(R.styleable.TitleView_center_text_size, mTvCenter.textSize)
+            mTvCenter.setTextSize(TypedValue.COMPLEX_UNIT_PX,typeArray.getDimension(R.styleable.TitleView_center_text_size, mTvCenter.textSize))
             mTvCenter.setTextColor(typeArray.getColor(R.styleable.TitleView_center_text_color, ContextCompat.getColor(context, R.color.colorFF333333)))
             mTvSure.text = typeArray.getString(R.styleable.TitleView_sure_data)
             mTvSure.setCompoundDrawablesWithIntrinsicBounds(typeArray.getDrawable(R.styleable.TitleView_sure_left_drawable),
                     typeArray.getDrawable(R.styleable.TitleView_sure_top_drawable), typeArray.getDrawable(R.styleable.TitleView_sure_right_drawable),
                     typeArray.getDrawable(R.styleable.TitleView_sure_bottom_drawable))
-            mTvSure.textSize = typeArray.getDimensionPixelSize(R.styleable.TitleView_sure_text_size, mTvSure.textSize.toInt()).toFloat()
+            mTvSure.setTextSize(TypedValue.COMPLEX_UNIT_PX,typeArray.getDimension(R.styleable.TitleView_sure_text_size, mTvSure.textSize))
             mTvSure.setTextColor(typeArray.getColor(R.styleable.TitleView_sure_text_color, ContextCompat.getColor(context, R.color.colorFF333333)))
             mTvSure.setPadding(typeArray.getDimensionPixelSize(R.styleable.TitleView_sure_text_padding_left, ScreenUtils.dp2px(context, 0f)),
                     typeArray.getDimensionPixelSize(R.styleable.TitleView_sure_text_padding_top, ScreenUtils.dp2px(context, 0f)),

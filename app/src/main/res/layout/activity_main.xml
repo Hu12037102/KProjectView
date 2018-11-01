@@ -9,11 +9,23 @@
     <com.hu.xiaobai.view.TitleView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:group_color="@color/colorPrimary"/>
+        app:group_color="@color/colorPrimary"
+        app:back_data="返回"
+        app:sure_data="确定"
+        app:sure_text_size="18dp"
+        app:center_data="标题"
+        app:center_text_size="24sp"
+        />
 
     <com.hu.xiaobai.view.ItemView
         android:id="@+id/item_view"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        app:title_text_size="18sp"
+        app:content_text_size="20sp"
+        app:title_left_icon="@mipmap/ic_go_wallet"
+        app:title_data="钱包"
+        app:content_data="1000000"
+        />
 
 </LinearLayout>

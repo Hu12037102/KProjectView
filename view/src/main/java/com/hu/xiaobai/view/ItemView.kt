@@ -61,12 +61,15 @@ open class ItemView : RelativeLayout {
                     typedArray.getDrawable(R.styleable.ItemView_title_bottom_icon))
             mTvLeft.text = typedArray.getString(R.styleable.ItemView_title_data)
             mTvLeft.setTextSize(TypedValue.COMPLEX_UNIT_PX, typedArray.getDimensionPixelSize(R.styleable.ItemView_title_text_size, mTvLeft.textSize.toInt()).toFloat())
-            mTvLeft.setCompoundDrawablePadding(typedArray.getDimensionPixelSize(R.styleable.ItemView_title_drawable_padding, 0))
             mTvLeft.compoundDrawablePadding = typedArray.getDimensionPixelSize(R.styleable.ItemView_title_drawable_padding, 0)
             when (typedArray.getBoolean(R.styleable.ItemView_show_top_line, true)) {
                 true -> mTopLine.visibility = View.VISIBLE
                 false -> mTopLine.visibility = View.GONE
             }
+            setMargin(mTvLeft,typedArray.getDimensionPixelSize(R.styleable.ItemView_title_left_margin,0),typedArray.getDimensionPixelSize(R.styleable.ItemView_title_top_margin,0),
+                    typedArray.getDimensionPixelSize(R.styleable.ItemView_title_right_margin,0),typedArray.getDimensionPixelSize(R.styleable.ItemView_title_bottom_margin,0))
+            mTvLeft.setPadding(typedArray.getDimensionPixelSize(R.styleable.ItemView_title_left_padding,0),typedArray.getDimensionPixelSize(R.styleable.ItemView_title_top_padding,0),
+                    typedArray.getDimensionPixelSize(R.styleable.ItemView_title_right_padding,0),typedArray.getDimensionPixelSize(R.styleable.ItemView_title_bottom_padding,0))
             mTopLine.setBackgroundColor(typedArray.getColor(R.styleable.ItemView_bottom_line_color, ContextCompat.getColor(context, R.color.colorFFEFEFEF)))
             setLineHeight(mTopLine, ScreenUtils.dp2px(context, 0.5f))
             setMargin(mTopLine, typedArray.getDimensionPixelSize(R.styleable.ItemView_top_line_margin_left, 0), typedArray.getDimensionPixelSize(R.styleable.ItemView_top_line_margin_top, 0),
@@ -77,15 +80,16 @@ open class ItemView : RelativeLayout {
                     typedArray.getDrawable(R.styleable.ItemView_content_bottom_icon))
             mTvRight.text = typedArray.getString(R.styleable.ItemView_content_data)
             mTvRight.setTextSize(TypedValue.COMPLEX_UNIT_PX, typedArray.getDimensionPixelSize(R.styleable.ItemView_content_text_size, mTvRight.textSize.toInt()).toFloat())
-            mTvRight.setCompoundDrawablePadding(typedArray.getDimensionPixelSize(R.styleable.ItemView_content_drawable_padding, 0))
             mTvRight.compoundDrawablePadding = typedArray.getDimensionPixelSize(R.styleable.ItemView_content_drawable_padding, 0)
             setLineHeight(mBottomLine, ScreenUtils.dp2px(context, 0.5f))
             setMargin(mTopLine, typedArray.getDimensionPixelSize(R.styleable.ItemView_bottom_line_margin_left, 0), typedArray.getDimensionPixelSize(R.styleable.ItemView_bottom_line_margin_top, 0),
                     typedArray.getDimensionPixelSize(R.styleable.ItemView_bottom_line_margin_right, 0), typedArray.getDimensionPixelSize(R.styleable.ItemView_bottom_line_margin_bottom, 0))
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            mTvRight.setPadding(typedArray.getDimensionPixelSize(R.styleable.ItemView_content_left_padding,0),typedArray.getDimensionPixelSize(R.styleable.ItemView_content_top_padding,0),
+                    typedArray.getDimensionPixelSize(R.styleable.ItemView_content_right_padding,0),typedArray.getDimensionPixelSize(R.styleable.ItemView_content_bottom_padding,0))
+            setMargin(mTvRight,typedArray.getDimensionPixelSize(R.styleable.ItemView_content_left_margin,0),typedArray.getDimensionPixelSize(R.styleable.ItemView_content_top_margin,0),
+                    typedArray.getDimensionPixelSize(R.styleable.ItemView_content_right_margin,0),typedArray.getDimensionPixelSize(R.styleable.ItemView_content_bottom_margin,0))
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN && typedArray.getDrawable(R.styleable.ItemView_selector_drawable) !=null) {
                 mRootView.background = typedArray.getDrawable(R.styleable.ItemView_selector_drawable)
-            } else {
-                mRootView.setBackgroundDrawable(typedArray.getDrawable(R.styleable.ItemView_selector_drawable))
             }
             typedArray.recycle()
         }
